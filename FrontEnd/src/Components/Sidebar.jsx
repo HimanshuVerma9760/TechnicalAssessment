@@ -11,24 +11,24 @@ import {
   Box,
   Typography,
   InputBase,
-  Input,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
-import MessageIcon from "@mui/icons-material/Message";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import Avatar from "@mui/material/Avatar";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
+// import MenuBookIcon from "@mui/icons-material/MenuBook";
+import ClassIcon from '@mui/icons-material/Class';
 import HelpIcon from "@mui/icons-material/Help";
 import BarChartIcon from "@mui/icons-material/BarChart";
-import SettingsIcon from "@mui/icons-material/Settings";
+// import SettingsIcon from "@mui/icons-material/Settings";
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
+import { MessageOutlined, NotificationsOutlined } from "@mui/icons-material";
 
 export default function Sidebar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -42,24 +42,24 @@ export default function Sidebar() {
   const links = [
     { text: "Dashboard", icon: <DashboardIcon />, route: "/dashboard" },
     { text: "Students", icon: <GroupIcon />, route: "/students" },
-    { text: "Chapter", icon: <MenuBookIcon />, route: "/chapter" },
-    { text: "Help", icon: <HelpIcon />, route: "/help" },
+    { text: "Chapter", icon: <ClassIcon />, route: "/chapter" },
+    { text: "Help", icon: <HelpOutlineIcon />, route: "/help" },
     { text: "Report", icon: <BarChartIcon />, route: "/report" },
-    { text: "Settings", icon: <SettingsIcon />, route: "/settings" },
+    { text: "Settings", icon: <SettingsOutlinedIcon />, route: "/settings" },
   ];
 
   const drawerContent = (
     <Box>
       <Typography
         variant="h5"
-        sx={{ p: 2, fontWeight: "bold", fontFamily: "sans-serif" }}
+        sx={{ p: 2}}
       >
-        Quyl.
+        <img src="logo.svg" />
       </Typography>
       <List>
         {links.map((link) => (
           <ListItem
-            sx={{ color: "black" }}
+            sx={{ color: "black"}}
             button
             key={link.text}
             component={NavLink}
@@ -70,7 +70,7 @@ export default function Sidebar() {
             })}
           >
             <ListItemIcon>{link.icon}</ListItemIcon>
-            <ListItemText primary={link.text} />
+            <ListItemText sx={{fontSize:'16px'}} primary={link.text} />
           </ListItem>
         ))}
       </List>
@@ -78,14 +78,14 @@ export default function Sidebar() {
   );
 
   return (
-    <Box sx={{ display: "flex", marginBottom: { xs: "2rem", sm: "1px" } }}>
+    <Box>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          maxWidth: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: "whitesmoke",
+          backgroundColor: "#F6F8FA",
           boxShadow: "none",
         }}
       >
@@ -113,21 +113,21 @@ export default function Sidebar() {
               p: 0.5,
               pl: 2,
               width: "100%",
-              padding:'1.3rem'
+              // padding: "1.3rem",
             }}
           >
             <InputBase
               sx={{
                 ml: 1,
                 color: "black",
-                width: "100%",
+                width: "614px",
                 backgroundColor: "white",
                 borderRadius: "0.5rem",
                 padding: "0.3rem",
                 maxWidth: "100%",
                 boxSizing: "border-box",
               }}
-              placeholder="Search your courses"
+              placeholder="Search your course"
               startAdornment={
                 <Box>
                   <SearchIcon
@@ -146,40 +146,43 @@ export default function Sidebar() {
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
-              gap: { xs: 3, sm: 5 },
-              marginLeft: { xs: 6, sm: 10 },
-              marginRight: { xs: 6, sm: 10 },
+              gap: { xs: 3, sm: "40px" },
             }}
           >
             <IconButton color="inherit">
               <HelpOutlineIcon
-                sx={{ color: "grey", fontSize: { xs: "17px", sm: "25px" } }}
+                sx={{ color: "#808281", fontSize: { xs: "17px", sm: "25px" } }}
               />
             </IconButton>
             <IconButton color="inherit">
               <Badge>
-                <MessageIcon
-                  sx={{ color: "grey", fontSize: { xs: "17px", sm: "25px" } }}
+                <MessageOutlined
+                  sx={{
+                    color: "#808281",
+                    fontSize: { xs: "17px", sm: "25px" },
+                  }}
                 />
               </Badge>
             </IconButton>
             <IconButton color="inherit">
-              <FilterListIcon
-                sx={{ color: "grey", fontSize: { xs: "17px", sm: "25px" } }}
+              <TuneOutlinedIcon
+                sx={{ color: "#808281", fontSize: { xs: "17px", sm: "25px" } }}
               />
             </IconButton>
             <IconButton color="inherit">
               <Badge badgeContent={5} color="error">
-                <NotificationsIcon
-                  sx={{ color: "grey", fontSize: { xs: "17px", sm: "25px" } }}
+                <NotificationsOutlined
+                  sx={{
+                    color: "#6F767E",
+                    fontSize: { xs: "17px", sm: "25px" },
+                  }}
                 />
               </Badge>
             </IconButton>
             <Box display="flex" alignItems="center" gap={1}>
               <Avatar
                 alt="Admin"
-                src="/static/images/avatar/1.jpg"
+                src="/Katy Cox.svg"
                 sx={{
                   borderRadius: 0,
                   margin: "0.3rem",
@@ -191,9 +194,10 @@ export default function Sidebar() {
                 variant="body1"
                 noWrap
                 sx={{
-                  color: "black",
+                  color: "#05162E",
+                  fontFamily: "Noto Sans",
                   fontSize: { xs: "12px", sm: "18px" },
-                  fontWeight: "bold",
+                  fontWeight: "600",
                 }}
               >
                 Adeline H. Dancy
@@ -205,7 +209,7 @@ export default function Sidebar() {
 
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}}
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="sidebar"
       >
         <Drawer

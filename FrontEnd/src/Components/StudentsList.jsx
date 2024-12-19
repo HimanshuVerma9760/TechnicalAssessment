@@ -28,28 +28,39 @@ export default function StudentsList() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontWeight: "bold" }}>Student Name</TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
+            <TableCell sx={{ fontWeight: "700", fontSize: "12px" }}>
+              Student Name
+            </TableCell>
+            <TableCell
+              align="right"
+              sx={{ fontWeight: "700", fontSize: "12px" }}
+            >
               Cohort
             </TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
+            <TableCell
+              align="right"
+              sx={{ fontWeight: "700", fontSize: "12px" }}
+            >
               Courses
             </TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
+            <TableCell
+              align="right"
+              sx={{ fontWeight: "700", fontSize: "12px" }}
+            >
               Date joined
             </TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
+            <TableCell
+              align="right"
+              sx={{ fontWeight: "700", fontSize: "12px" }}
+            >
               Last login
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
+            <TableRow key={row.name}>
+              <TableCell component="th" scope="row" sx={{ fontSize: "12px" }}>
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.calories}</TableCell>
