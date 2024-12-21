@@ -13,14 +13,16 @@ import { Link, useLoaderData } from "react-router-dom";
 
 export default function Student() {
   const drawerWidth = 248;
-  const studentData = useLoaderData();
+  const studentData = useLoaderData() || [];
 
   const [academicYear, setAcademicYear] = useState("AY 2024-25");
   const [studentClass, setStudentClass] = useState("CBSE 9");
 
   const myStudentData = useMemo(() => {
-    if(studentClass==="All"){
-      return studentData;
+    if (studentClass === "All") {
+      return studentData.filter(
+        (eachStudent) => eachStudent.cohort === academicYear
+      );
     }
     return studentData.filter(
       (eachStudent) =>
@@ -46,18 +48,18 @@ export default function Student() {
 
   return (
     <>
-      <Box sx={{ display: "flex"}}>
+      <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <Box
           sx={{
             position: "fixed",
-            width: {xs:"23rem", sm: "76.5rem" },
+            width: { xs: "23rem", sm: "76.5rem" },
             minHeight: "600px",
             ml: { sm: `${drawerWidth}px` },
             padding: "1rem",
             marginTop: { xs: "2rem", sm: "0rem" },
             backgroundColor: "white",
-            left: {xs:"0.8rem",sm:"2.5rem"},
+            left: { xs: "0.8rem", sm: "2.5rem" },
           }}
         >
           <Grid2

@@ -246,7 +246,7 @@ export default function StudentsList({ studentData }) {
                     )}
                   </TableRow>
                 ))
-              : "No student for selected year and/or class"}
+              : <><p>No student for selected year and/or class</p></>}
           </TableBody>
         </Table>
       </TableContainer>
