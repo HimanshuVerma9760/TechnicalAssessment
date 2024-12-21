@@ -1,7 +1,7 @@
 const db = require("./util/database");
 const cors = require("cors");
 const express = require("express");
-const { routes } = require("./routes/StudentRoute");
+const { routes } = require("./routes/studentRoute");
 
 const port = 3000;
 const app = express();
