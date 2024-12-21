@@ -175,7 +175,7 @@ export default function StudentsList({ studentData }) {
                       scope="row"
                       sx={{
                         fontSize: { xs: "10px", sm: "12px" },
-                        width: "fit-content",
+                        width:{xs:"130px",sm:"180px"}
                       }}
                     >
                       {row.name}
@@ -184,7 +184,6 @@ export default function StudentsList({ studentData }) {
                       align="left"
                       sx={{
                         fontSize: { xs: "10px", sm: "12px" },
-                        width: "fit-content",
                       }}
                     >
                       {row.cohort}
