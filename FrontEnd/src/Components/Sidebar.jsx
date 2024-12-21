@@ -20,28 +20,28 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 // import MenuBookIcon from "@mui/icons-material/MenuBook";
-import ClassIcon from '@mui/icons-material/Class';
+import ClassIcon from "@mui/icons-material/Class";
 import HelpIcon from "@mui/icons-material/Help";
 import BarChartIcon from "@mui/icons-material/BarChart";
 // import SettingsIcon from "@mui/icons-material/Settings";
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import TuneOutlinedIcon from "@mui/icons-material/TuneOutlined";
 import { MessageOutlined, NotificationsOutlined } from "@mui/icons-material";
 
 export default function Sidebar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setopen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setopen(!open);
   };
 
-  const drawerWidth = 240;
+  const drawerWidth = 248;
 
   const links = [
     { text: "Dashboard", icon: <DashboardIcon />, route: "/dashboard" },
-    { text: "Students", icon: <GroupIcon />, route: "/students" },
+    { text: "Students", icon: <GroupIcon />, route: "/" },
     { text: "Chapter", icon: <ClassIcon />, route: "/chapter" },
     { text: "Help", icon: <HelpOutlineIcon />, route: "/help" },
     { text: "Report", icon: <BarChartIcon />, route: "/report" },
@@ -50,27 +50,38 @@ export default function Sidebar() {
 
   const drawerContent = (
     <Box>
-      <Typography
-        variant="h5"
-        sx={{ p: 2}}
-      >
-        <img src="logo.svg" />
+      <Typography sx={{ p: 2 }}>
+        <img src="logo.svg" alt="Logo" />
       </Typography>
+
       <List>
         {links.map((link) => (
           <ListItem
-            sx={{ color: "black"}}
             button
             key={link.text}
             component={NavLink}
             to={link.route}
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              backgroundColor: isActive ? "#f0f0f0" : "transparent",
-            })}
+            sx={{
+              color: "#6F767E",
+              "&.active": {
+                color: "black",
+                backgroundColor: "#f0f0f0",
+              },
+            }}
           >
             <ListItemIcon>{link.icon}</ListItemIcon>
-            <ListItemText sx={{fontSize:'16px'}} primary={link.text} />
+            <ListItemText
+              primary={
+                <Typography
+                  sx={{
+                    fontWeight:"700",
+                    fontSize: "16px",
+                  }}
+                >
+                  {link.text}
+                </Typography>
+              }
+            />
           </ListItem>
         ))}
       </List>
@@ -214,7 +225,7 @@ export default function Sidebar() {
       >
         <Drawer
           variant="temporary"
-          open={mobileOpen}
+          open={open}
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true,
