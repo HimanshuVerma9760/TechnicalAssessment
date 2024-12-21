@@ -191,7 +191,7 @@ export default function StudentsList({ studentData }) {
                     {!isSmallScreen && (
                       <TableCell
                         align="left"
-                        sx={{ fontSize: { xs: "10px", sm: "12px" } }}
+                        sx={{ fontSize: { xs: "10px", sm: "12px" }, width:"330px" }}
                       >
                         {row.courses.map((eachCourse, idx) => (
                           <span
